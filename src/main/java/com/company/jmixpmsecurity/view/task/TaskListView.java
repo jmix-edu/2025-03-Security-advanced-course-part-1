@@ -4,12 +4,14 @@ import com.company.jmixpmsecurity.entity.Task;
 import com.company.jmixpmsecurity.view.main.MainView;
 import com.company.jmixpmsecurity.view.timeentry.quickaddtimeentry.QuickAddTimeEntryDialog;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.server.auth.AnonymousAllowed;
 import io.jmix.flowui.DialogWindows;
 import io.jmix.flowui.component.grid.DataGrid;
 import io.jmix.flowui.kit.action.ActionPerformedEvent;
 import io.jmix.flowui.view.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
+@AnonymousAllowed
 @Route(value = "tasks", layout = MainView.class)
 @ViewController("Task_.list")
 @ViewDescriptor("task-list-view.xml")
