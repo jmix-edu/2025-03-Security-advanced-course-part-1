@@ -1,0 +1,160 @@
+version: 1
+
+dn: dc=example,dc=org
+objectClass: dcObject
+objectClass: organization
+dc: example
+o: example
+
+dn: ou=users,dc=example,dc=org
+objectClass: organizationalUnit
+ou: users
+
+dn: cn=admin,ou=users,dc=example,dc=org
+objectClass: groupOfNames
+cn: admin
+member: cn=bryan,ou=users,dc=example,dc=org
+member: cn=sanches,ou=users,dc=example,dc=org
+
+dn: cn=smith,ou=users,dc=example,dc=org
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: smith
+cn: User6
+gidNumber: 1005
+homeDirectory: /home/smith
+sn: Smith
+uid: smith
+uidNumber: 1005
+employeeType: developer-restrictions
+givenName: Paul
+mail: smith@example.com
+telephoneNumber: 300-33-45
+userPassword:: c21pdGg=
+
+dn: cn=lennon,ou=users,dc=example,dc=org
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: lennon
+cn: User1
+gidNumber: 1000
+homeDirectory: /home/lennon
+sn: Lennon
+uid: lennon
+uidNumber: 1000
+employeeType: developer-restrictions
+givenName: John
+mail: lennon@example.com
+telephoneNumber: (815) 155-15-292
+userPassword:: bGVubm9u
+
+dn: cn=black,ou=users,dc=example,dc=org
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: black
+cn: User3
+gidNumber: 1002
+homeDirectory: /home/black
+sn: Black
+uid: black
+uidNumber: 1002
+employeeType: restricted-documents
+employeeType: restricted-projects
+givenName: Joe
+mail: black@example.com
+telephoneNumber: +4 (234) 555-35-35
+userPassword:: YmxhY2s=
+
+dn: cn=sanches,ou=users,dc=example,dc=org
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: sanches
+cn: User4
+gidNumber: 1003
+homeDirectory: /home/sanches
+sn: Sanches
+uid: sanches
+uidNumber: 1003
+givenName: Rick
+mail: sanches@example.com
+telephoneNumber: +7 (321) 123-31-21
+userPassword:: c2FuY2hlcw==
+
+dn: cn=kim,ou=users,dc=example,dc=org
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: kim
+cn: User5
+gidNumber: 1004
+homeDirectory: /home/kim
+sn: Kim
+uid: kim
+uidNumber: 1004
+employeeType: restricted-documents
+employeeType: restricted-projects
+givenName: Lee
+mail: kim@example.com
+telephoneNumber: +7 (300) 898-45-67
+userPassword:: a2lt
+
+dn: cn=white,ou=users,dc=example,dc=org
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: User7
+cn: white
+gidNumber: 1006
+homeDirectory: /home/white
+sn: White
+uid: white
+uidNumber: 1006
+employeeType: developer-restrictions
+givenName: Jane
+mail: white@example.com
+telephoneNumber: +7 (121) 404-15-98
+userPassword:: d2hpdGU=
+
+dn: cn=division,ou=users,dc=example,dc=org
+objectClass: groupOfNames
+cn: division
+member: cn=black,ou=users,dc=example,dc=org
+member: cn=bryan,ou=users,dc=example,dc=org
+member: cn=kim,ou=users,dc=example,dc=org
+member: cn=lennon,ou=users,dc=example,dc=org
+member: cn=sanches,ou=users,dc=example,dc=org
+member: cn=smith,ou=users,dc=example,dc=org
+member: cn=white,ou=users,dc=example,dc=org
+
+dn: cn=managers,ou=users,dc=example,dc=org
+objectClass: groupOfNames
+cn: managers
+member: cn=black,ou=users,dc=example,dc=org
+member: cn=kim,ou=users,dc=example,dc=org
+
+dn: cn=bryan,ou=users,dc=example,dc=org
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: bryan
+cn: User2
+gidNumber: 1001
+homeDirectory: /home/bryan
+sn: Bryan
+uid: bryan
+uidNumber: 1001
+givenName: Richard
+mail: bryan@example.com
+telephoneNumber: 123-456-789
+userPassword:: YnJ5YW4=
+
+dn: cn=developers,ou=users,dc=example,dc=org
+objectClass: groupOfNames
+cn: developers
+member: cn=lennon,ou=users,dc=example,dc=org
+member: cn=smith,ou=users,dc=example,dc=org
+member: cn=white,ou=users,dc=example,dc=org

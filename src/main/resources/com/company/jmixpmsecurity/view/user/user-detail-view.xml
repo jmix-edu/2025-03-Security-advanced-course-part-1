@@ -32,6 +32,8 @@
             <textField id="emailField" property="email"/>
             <comboBox id="timeZoneField" property="timeZoneId" clearButtonVisible="true"/>
             <checkbox id="activeField" property="active"/>
+            <dateTimePicker id="createdDateField" property="createdDate"/>
+            <textField id="idField" property="id"/>
         </formLayout>
         <hbox id="detailActions">
             <button id="saveAndCloseButton" action="saveAction"/>

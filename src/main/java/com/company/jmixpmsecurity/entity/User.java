@@ -8,12 +8,13 @@ import io.jmix.core.metamodel.annotation.DependsOnProperties;
 import io.jmix.core.metamodel.annotation.InstanceName;
 import io.jmix.core.metamodel.annotation.JmixEntity;
 import io.jmix.security.authentication.JmixUserDetails;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.security.core.GrantedAuthority;
-import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
 
+import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.Collection;
 import java.util.Collections;
@@ -27,7 +28,7 @@ import java.util.UUID;
 public class User implements JmixUserDetails, HasTimeZone {
 
     @Id
-    @Column(name = "ID")
+    @Column(name = "ID", nullable = false)
     @JmixGeneratedValue
     private UUID id;
 
@@ -73,8 +74,19 @@ public class User implements JmixUserDetails, HasTimeZone {
     @Column(name = "CREATED_DATE")
     private OffsetDateTime createdDate;
 
+    @Column(name = "EXPIRY_DATE")
+    private LocalDate expiryDate;
+
     @Transient
     private Collection<? extends GrantedAuthority> authorities;
+
+    public LocalDate getExpiryDate() {
+        return expiryDate;
+    }
+
+    public void setExspiryDate(LocalDate expiryDate) {
+        this.expiryDate = expiryDate;
+    }
 
     public UUID getId() {
         return id;
@@ -153,7 +165,8 @@ public class User implements JmixUserDetails, HasTimeZone {
 
     @Override
     public boolean isAccountNonExpired() {
-        return true;
+        LocalDate now = LocalDate.now();
+        return expiryDate == null || now.isBefore(expiryDate);
     }
 
     @Override
